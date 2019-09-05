@@ -1,33 +1,49 @@
-//
-//  Copyright 2014 Carlos Compean.
-//
-//  Licensed under the Apache License, Version 2.0 (the "License");
-//  you may not use this file except in compliance with the License.
-//  You may obtain a copy of the License at
-//
-//      http://www.apache.org/licenses/LICENSE-2.0
-//
-//  Unless required by applicable law or agreed to in writing, software
-//  distributed under the License is distributed on an "AS IS" BASIS,
-//  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-//  See the License for the specific language governing permissions and
-//  limitations under the License.
-//
+
 
 import UIKit
 
 class ViewController: UIViewController {
+    @IBOutlet weak var rippleView: UIView! {
+        didSet {
+            rippleView.backgroundColor = UIColor.green.withAlphaComponent(0.6)
+        }
+    }
     
     @IBOutlet var radar: CCMRadarView!
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        addRippleView()
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        radar.startAnimation()
+    
+    var rippleEffectView: RippleEffectView!
+    func addRippleView() {
+        
+        rippleEffectView = RippleEffectView(
+            image: UIImage(named: ""),
+            frame: rippleView.frame,
+            didEnd: { success in
+        })
+        
+        rippleView.addSubview(rippleEffectView!)
+        rippleEffectView.translatesAutoresizingMaskIntoConstraints = false
+        
+        NSLayoutConstraint.activate([
+            rippleEffectView.centerXAnchor.constraint(equalTo: rippleView.centerXAnchor),
+            rippleEffectView.centerYAnchor.constraint(equalTo: rippleView.centerYAnchor),
+            rippleEffectView.widthAnchor.constraint(equalTo: rippleView.widthAnchor),
+            rippleEffectView.heightAnchor.constraint(equalTo: rippleView.heightAnchor)
+            ])
+        
+        
+        rippleEffectView?.setRippleColor(#colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0))
+        rippleEffectView?.setRippleTrailColor(#colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0).withAlphaComponent(0.6))
+        rippleEffectView?.layer.borderColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0).cgColor
+        rippleEffectView?.backgroundColor = .clear
+        rippleEffectView?.titleLabel.textColor = .white
+        rippleEffectView?.titleLabel.text = "Add\nGoal"
+        rippleEffectView?.titleLabel.font = UIFont.systemFont(ofSize: 20, weight: .bold)
     }
 
 }

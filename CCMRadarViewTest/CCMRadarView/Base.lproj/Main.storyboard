@@ -22,7 +22,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="I4Y-FU-wW3" customClass="CCMRadarView" customModule="CCMRadarView" customModuleProvider="target">
-                                <rect key="frame" x="26" y="267" width="362" height="362"/>
+                                <rect key="frame" x="129.5" y="370.5" width="155" height="155"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="I4Y-FU-wW3" secondAttribute="height" multiplier="1:1" id="Ocu-Me-lOm"/>
                                 </constraints>
@@ -37,16 +37,26 @@
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="reversedRadar" value="NO"/>
                                 </userDefinedRuntimeAttributes>
                             </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Y7L-TQ-qfB">
+                                <rect key="frame" x="160.5" y="268" width="93" height="92.5"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="Y7L-TQ-qfB" secondAttribute="height" constant="1" id="aMv-9i-JSA"/>
+                                </constraints>
+                            </view>
                         </subviews>
-                        <color key="backgroundColor" red="0.98039215686274506" green="0.98039215686274506" blue="0.98039215686274506" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="I4Y-FU-wW3" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="62" id="5Se-qk-GcR"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="I4Y-FU-wW3" secondAttribute="bottom" constant="78" id="9JV-Lh-MtB"/>
                             <constraint firstItem="I4Y-FU-wW3" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="58" id="EiB-PZ-pAg"/>
                             <constraint firstItem="I4Y-FU-wW3" firstAttribute="top" relation="greaterThanOrEqual" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="20" id="Ill-6Q-a15"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" relation="greaterThanOrEqual" secondItem="I4Y-FU-wW3" secondAttribute="bottom" constant="20" id="LRY-Aa-Gk8"/>
-                            <constraint firstAttribute="width" secondItem="I4Y-FU-wW3" secondAttribute="width" multiplier="8:7" priority="750" id="hat-Hf-8ag"/>
+                            <constraint firstItem="Y7L-TQ-qfB" firstAttribute="width" secondItem="I4Y-FU-wW3" secondAttribute="width" multiplier="0.6" id="h3q-Uo-GlS"/>
+                            <constraint firstAttribute="width" secondItem="I4Y-FU-wW3" secondAttribute="width" multiplier="8:3" priority="750" id="hat-Hf-8ag"/>
                             <constraint firstAttribute="centerX" secondItem="I4Y-FU-wW3" secondAttribute="centerX" id="uoz-OF-1e8"/>
+                            <constraint firstItem="I4Y-FU-wW3" firstAttribute="top" secondItem="Y7L-TQ-qfB" secondAttribute="bottom" constant="10" id="v63-Fl-dDX"/>
+                            <constraint firstItem="Y7L-TQ-qfB" firstAttribute="centerX" secondItem="I4Y-FU-wW3" secondAttribute="centerX" id="vXV-1k-n3V"/>
                             <constraint firstAttribute="centerY" secondItem="I4Y-FU-wW3" secondAttribute="centerY" id="w5p-FZ-gwD"/>
                             <constraint firstAttribute="trailingMargin" relation="greaterThanOrEqual" secondItem="I4Y-FU-wW3" secondAttribute="trailing" constant="62" id="wxC-mD-nPt"/>
                         </constraints>
@@ -61,10 +71,12 @@
                     </view>
                     <connections>
                         <outlet property="radar" destination="I4Y-FU-wW3" id="YOX-er-YjI"/>
+                        <outlet property="rippleView" destination="Y7L-TQ-qfB" id="MW2-l0-Gde"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="137.68115942028987" y="137.94642857142856"/>
         </scene>
     </scenes>
     <resources>
